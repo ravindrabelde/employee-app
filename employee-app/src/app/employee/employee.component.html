@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Vacation Days</th>
+    <th>Work</th>
+    <th>Take Vacation</th>
+  </tr>
+  <tr *ngFor="let employee of employees">
+    <td>{{ employee.id }}</td>
+<!--    <td>{{ employee.type }}</td>-->
+    <td>{{ employee.vacationDays }}</td>
+    <td>
+      <input #daysWorkedInput type="number" min="0" max="260">
+      <button (click)="work(employee, daysWorkedInput.valueAsNumber)">Work</button>
+    </td>
+    <td>
+      <input #daysVacationInput type="number" min="0" [max]="employee.vacationDays">
+      <button (click)="takeVacation(employee, daysVacationInput.valueAsNumber)">Take Vacation</button>
+    </td>
+  </tr>
+</table>
